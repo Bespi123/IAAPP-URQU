@@ -1,8 +1,8 @@
 clear 
 clc
 close all
-laserData1=readmatrix('loge_y2021d268t101017.csv');
-laserData2=readmatrix('loge_y2021d268t103342.csv');
+laserData1=readmatrix('loge_y2021d268t101017');
+laserData2=readmatrix('loge_y2021d268t103342');
 
 %Initial variables
 c = 299792458;      %Light velocity
