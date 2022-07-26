@@ -16,30 +16,14 @@ tara = ReadGamitFiles('TARA.iaa.orbit_igs14.pos');
 tarb = ReadGamitFiles('TARB.iaa.orbit_igs14.pos');
 
 %% Read Laser files
-%Read MinicoTest files
-atemp1 = readTTfiles('s64y21d215e1714#TT.txt');
-atemp2 = readTTfiles('s64y21d215e1718#TT.txt');
-atemp3 = readTTfiles('s64y21d215e1724#TT.txt');
-atemp4 = readTTfiles('s64y21d215e1729#TT.txt');
-atemp5 = readTTfiles('s64y21d215e1733#TT.txt');
-atemp6 = readTTfiles('s64y21d215e1737#TT.txt');
-atemp7 = readTTfiles('s64y21d215e1741#TT.txt');
-atemp8 = readTTfiles('s64y21d215e1745#TT.txt');
-atemp9 = readTTfiles('s64y21d215e1749#TT.txt');
-atemp10 = readTTfiles('s64y21d215e1753#TT.txt');
-atemp11 = readTTfiles('s64y21d215e1757#TT.txt');
-atemp12 = readTTfiles('s64y21d215e1800#TT.txt');
-atemp13 = readTTfiles('s64y21d215e1805#TT.txt');
-atemp14 = readTTfiles('s64y21d215e1808#TT.txt');
-atemp15 = readTTfiles('s64y21d215e1813#TT.txt');
-%Combine structures
-minico =cat(1,atemp1,atemp2,atemp3,atemp4,atemp5,atemp6,atemp7,atemp8,atemp9, ...
-    atemp10,atemp11,atemp12,atemp13,atemp14,atemp15);
-%Clear variables
-clear atemp1 atemp2 atemp3 atemp4 atemp5 atemp6 atemp7 atemp8 atemp9  ...
-    atemp10 atemp11 atemp12 atemp13 atemp14 atemp15;
+%Read .sm files
+smFiles = dir('Data/Laser/*.sm');
+for i=1:length(smFiles)
+    minico(i)=readTTfiles(smFiles(i).name);
+end
+
 %Read Laser data
- laserData=readLaserData('loge_y2021d215t171131.csv');
+ laserData=readLaserData('loge_y2021d215t171131');
 
  %% Processing parameters
 % Angles offset [az,elev]
