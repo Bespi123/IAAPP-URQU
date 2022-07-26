@@ -1,0 +1,39 @@
+PBO Station Position Time Series. Reference Frame : IGS14
+Format Version: 1.1.0
+4-character ID: TARA
+Station name  : AREQ_9PS        
+First Epoch   : 20210803 115900
+Last Epoch    : 20210804 115900
+Release Date  : 20210816 120255
+XYZ Reference position :   1942836.12795 -5804088.18298 -1796815.23681 (IGS14)
+NEU Reference position :   -16.4647809935  288.5072384858 2485.78206 (IGS14/WGS84)
+Start Field Description
+YYYYMMDD      Year, month, day for the given position epoch
+HHMMSS        Hour, minute, second for the given position epoch
+JJJJJ.JJJJJ   Modified Julian day for the given position epoch
+X             X coordinate, Specified Reference Frame, meters
+Y             Y coordinate, Specified Reference Frame, meters
+Z             Z coordinate, Specified Reference Frame, meters
+Sx            Standard deviation of the X position, meters
+Sy            Standard deviation of the Y position, meters
+Sz            Standard deviation of the Z position, meters
+Rxy           Correlation of the X and Y position
+Rxz           Correlation of the X and Z position
+Ryz           Correlation of the Y and Z position
+Nlat          North latitude, WGS-84 ellipsoid, decimal degrees
+Elong         East longitude, WGS-84 ellipsoid, decimal degrees
+Height (Up)   Height relative to WGS-84 ellipsoid, m
+dN            Difference in North component from NEU reference position, meters
+dE            Difference in East component from NEU reference position, meters
+du            Difference in vertical component from NEU reference position, meters
+Sn            Standard deviation of dN, meters
+Se            Standard deviation of dE, meters
+Su            Standard deviation of dU, meters
+Rne           Correlation of dN and dE
+Rnu           Correlation of dN and dU
+Reu           Correlation of dEand dU
+Soln          "rapid", "final", "suppl/suppf", "campd", or "repro" corresponding to products  generated with rapid or final orbit products, in supplemental processing, campaign data processing or reprocessing
+End Field Description
+*YYYYMMDD HHMMSS JJJJJ.JJJJ         X             Y             Z            Sx        Sy       Sz     Rxy   Rxz    Ryz            NLat         Elong         Height         dN        dE        dU         Sn       Se       Su      Rne    Rnu    Reu  Soln
+ 20210803 115900 59429.4993  1942836.12808 -5804088.18366 -1796815.23720  0.00264  0.00593  0.00223 -0.707 -0.591  0.781     -16.4647809952  288.5072384849 2485.78283    -0.00019  -0.00010   0.00077    0.00133  0.00177  0.00649  0.032  0.003  0.028 orbit
+ 20210804 115900 59430.4993  1942836.12782 -5804088.18230 -1796815.23642  0.00258  0.00583  0.00220 -0.697 -0.585  0.775     -16.4647809919  288.5072384866 2485.78128     0.00017   0.00009  -0.00078    0.00133  0.00176  0.00637  0.020 -0.001  0.013 orbit
