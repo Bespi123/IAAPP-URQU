@@ -1,11 +1,11 @@
 clear, clc
 close all;
+% Developed by Bespi123 
 
 areg=ReadGamitFiles('AREG.mit.final.igs14.pos');
 areq=ReadGamitFiles('AREQ.mit.final.igs14.pos');
 mtpi=ReadGamitFiles('MTPI.mit.final.igs14.pos');
 mtpi_ingemmet = ReadGamitFiles('MTPI.ovi.orbit_sam14.pos');
-%mtpi_ingemmet = readmatrix('MPTI_INGEMET.txt');
 areq_nevada = readmatrix('AREQ.Geoff.txt');
 
 %%Calculate Baselines
