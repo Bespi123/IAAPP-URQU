@@ -2,10 +2,10 @@ function station = readTTfiles(filename)
     %% Open file 
     fileID = fopen(filename);
     %% Read Data
-    fseek(fileID,282,'bof');
+    fseek(fileID,281,'bof');
     tline = fgetl(fileID);
     station.name = sscanf(tline,'STATION        = %s                          PAD ID         = 74031306', 1);
-    fseek(fileID,427,'bof');
+    fseek(fileID,424,'bof');
     tline = fgetl(fileID);
     station.lla  = zeros(1,3);
     station.lla(1) = sscanf(tline,'LATITUDE       = %f', 1);
@@ -13,7 +13,7 @@ function station = readTTfiles(filename)
     station.lla(2) = sscanf(tline,'LONGITUDE      = %f', 1);
     tline = fgetl(fileID);
     station.lla(3) = sscanf(tline,'HEIGHT         = %f', 1);
-    fseek(fileID,615,'bof');
+    fseek(fileID,604,'bof');
     tline = fgetl(fileID);
     temp=sscanf(tline,'   A       %f       %f     %f    DATABASE', [1,3]);
     station.targets.targetA.azimuth = temp(1)*pi/180;
@@ -29,12 +29,12 @@ function station = readTTfiles(filename)
     station.targets.targetC.azimuth = temp(1)*pi/180;
     station.targets.targetC.elevation = temp(2)*pi/180;
     station.targets.targetC.range = temp(3);
-    fseek(fileID,1148,'bof');
+    fseek(fileID,1126,'bof');
     tline = fgetl(fileID);
-    temp=sscanf(tline,'SATELLITE  = ELSADCHS  / 2102213              MEAN  %f     %f  %f     ', [1,3]);
-    station.temp.mean = temp(1);
-    station.pressure.mean = temp(2);
-    station.humid.mean = temp(3);
+    temp=sscanf(tline,'SATELLITE  = ELSADTGT  / %d              MEAN  %f     %f  %f     ', [1,4]);
+    station.temp.mean = temp(2);
+    station.pressure.mean = temp(3);
+    station.humid.mean = temp(4);
     tline = fgetl(fileID);
     temp=sscanf(tline,'DATE       = %s %d, %d = DOY %d           MIN   %f     %f  %f     ', [1,7]);
     station.date=strcat(char(temp(1:3)),char(32),num2str(temp(4),2),', ',num2str(temp(5)));
@@ -55,12 +55,12 @@ function station = readTTfiles(filename)
     station.temp.rms = temp(4);
     station.pressure.rms = temp(5);
     station.humid.rms = temp(6);
-    fseek(fileID,1640,'bof');
+    fseek(fileID,1612,'bof');
     tline = fgetl(fileID);
     station.appliedTarget = sscanf(tline,'TARGET APPLIED     = %s                        TRANS OPT PATH =  0.0000 M        ', 1);
     tline = fgetl(fileID);
     station.delay = sscanf(tline,'DELAY APPLIED      =      %f NS           ND OPT PATH    =  0.0015 M        ',1);
-    fseek(fileID,2050,'bof');
+    fseek(fileID,2017,'bof');
     tline = fgetl(fileID);
     temp = sscanf(tline,'PRE   %s   %d  %d     %d   %d     %f     %f                              ',[1 7]);
     station.obs = temp(2);
