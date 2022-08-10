@@ -25,7 +25,7 @@ end
 %Read Raw data
  laserRawData=readLaserData('loge_y2021d215t171131');
 %Read Proseced data
-  
+ laserDat = ReadLogxData('logx_y2021d215t1714');
 
 
 function site = readTrack(file)
