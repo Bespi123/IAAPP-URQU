@@ -18,8 +18,10 @@ tarb = ReadGamitFiles('TARB.iaa.orbit_igs14.pos');
 %% Read Laser files
 %Read .sm files
 smFiles = dir('Data/Laser/*.sm');
+cpFiles = dir('Data/Laser/*.cp');
 for i=1:length(smFiles)
     minico(i)=readTTsmfiles(smFiles(i).name);
+    cpData(i)=readCpFiles(cpFiles(i).name);
 end
 
 %Read Raw data
