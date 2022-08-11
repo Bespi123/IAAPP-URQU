@@ -86,9 +86,11 @@ i = y >= y_break_end;
 y2 = y - i.*y_break_width;
 
 % PLOT THE MAPPED DATA
-h    = plot(x,y,'.');
-ylim([y_min y_max]);
-ylim1 = get(gca,'ylim');
+h = plot(x,y,'.');
+
+%ylim([y_min y_max]);
+%ylim1 = get(gca,'ylim');
+ylim1=[y_min y_max];
 h    = plot(x,y2,'.');
 set(gca,'ylim',ylim1-[0 y_break_width]);
 

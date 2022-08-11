@@ -22,6 +22,7 @@ for i=1:length(smFiles)
     minico(i)=readTTsmfiles(smFiles(i).name);
 end
 
+
 %Read Laser data
  laserData=readLaserData('loge_y2021d215t171131');
 
@@ -137,7 +138,7 @@ figure()
     title('Minico Test: Laser Data (TLRS-3)');
     xlabel('Seconds of Day(s)')
     ylabel('Distance (m)')
-    %legend('Target A','Target B','Target C','Location','northwest','FontSize',12)
+    legend('Target A','Target B','Target C','Location','northwest','FontSize',12)
     legend(strcat('TargetA: (mean:',num2str(datatgtA.mean,'%.3f'),'m, RMS:',num2str(datatgtA.Sr*1E3,'%.1f'),'mm)'), ...
      strcat('TargetB: (mean:',num2str(datatgtB.mean,'%.3f'),'m, RMS:',num2str(datatgtB.Sr*1E3,'%.1f'),'mm)'), ...
      strcat('TargetC: (mean:',num2str(datatgtC.mean,'%.3f'),'m, RMS:',num2str(datatgtC.Sr*1E3,'%.1f'),'mm)'),...
