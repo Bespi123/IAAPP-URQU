@@ -17,7 +17,7 @@ function laserDat = ReadLogxData(filename)
             laserDat.tgtc.name='C';
             switch temp(5)
                 case 65
-                    disp('Target A detected');
+                    %disp('Target A detected');
                     while ~feof(fileID)
                         tline= fgetl(fileID);
                         if(strcmp(tline(1:2),'71'))
@@ -43,7 +43,7 @@ function laserDat = ReadLogxData(filename)
                     end
                     %laserData.tgtA.disp('A')
                 case 66
-                    disp('Target B detected');
+                    %disp('Target B detected');
                     while ~feof(fileID)
                         tline= fgetl(fileID);
                         if(strcmp(tline(1:2),'71'))
@@ -69,7 +69,7 @@ function laserDat = ReadLogxData(filename)
                     end
                     %laserData.tgtA.disp('A')  
                 case 67
-                    disp('Target C detected');
+                    %disp('Target C detected');
                     while ~feof(fileID)
                         tline= fgetl(fileID);
                         if(strcmp(tline(1:2),'71'))
