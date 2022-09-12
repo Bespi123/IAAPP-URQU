@@ -10,7 +10,7 @@
 % *plotGamitNEU --> Local Function
 % *comparison --> Local Function
 %%%% Developed by Bespi123 
-%
+
 
 %% Clear and close variables 
 clear, clc
