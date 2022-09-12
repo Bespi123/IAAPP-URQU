@@ -38,7 +38,7 @@ function station = ReadGamitFiles(fileName)
 % station.neuReferencePosition  --> Reference position of ENU coordinates
 % station.neuReferencePositionRef --> ENU reference position frame
 % 
-% developed by bespi123
+% Developed by bespi123
 
 %% Data Containers
 station.YYYYMMDD=[];          %Year, month, day for the given position epoch
