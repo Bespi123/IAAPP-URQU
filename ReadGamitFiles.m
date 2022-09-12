@@ -1,6 +1,44 @@
 function station = ReadGamitFiles(fileName)
-
-fileID = fopen(fileName);
+%%This function read *.pos files from GMIT/GLOBK. As inputs, the file name 
+%%must be provided and as output an object with station data is
+%%returned.
+%%Example:
+% station=ReadGamitFiles('AREG.mit.final.igs14.pos');
+%%Output:
+% station.YYYYMMDD            --> Year, month, day for the given position epoch
+% station.HHMMSS              --> Hour, minute, second for the given position epoch
+% station.modifiedJulianDay   --> Modified Julian day for the given position epoch
+% station.X                   --> X coordinate, Specified Reference Frame, meters
+% station.Y                   --> Y coordinate, Specified Reference Frame, meters
+% station.Z                   --> Z coordinate, Specified Reference Frame, meters
+% station.Sx                  --> Standard deviation of the X position, meters
+% station.Sy                  --> Standard deviation of the Y position, meters
+% station.Sz                  --> Standard deviation of the Z position, meters
+% station.Rxy                 --> Correlation of the X and Y position
+% station.Rxz                 --> Correlation of the X and Z position
+% station.Ryz                 --> Correlation of the Y and Z position
+% station.Nlat                --> North latitude, WGS-84 ellipsoid, decimal degrees
+% station.Elong               --> East longitude, WGS-84 ellipsoid, decimal degrees
+% station.HeightUp            --> Height relative to WGS-84 ellipsoid, m
+% station.dN                  --> Difference in North component from NEU reference position, meters
+% station.dE                  --> Difference in East component from NEU reference position, meters
+% station.du                  --> Difference in vertical component from NEU reference position, meters
+% station.Sn                  --> Standard deviation of dN, meters
+% station.Se                  --> Standard deviation of dE, meters
+% station.Su                  --> Standard deviation of dU, meters
+% station.Rne                 --> Correlation of dN and dE
+% station.Rnu                 --> Correlation of dN and dU
+% station.Reu                 --> Correlation of dE and dU
+% station.name                --> Station name
+% station.firstEpoch          --> First epoch of data
+% station.lastEpoch           --> Last epoch of data
+% station.releaseDate         --> Reelase data
+% station.xyzReferencePosition  --> Reference position of ENU coordinates
+% station.ReferencePositionRef  --> Reference position frame
+% station.neuReferencePosition  --> Reference position of ENU coordinates
+% station.neuReferencePositionRef --> ENU reference position frame
+% 
+% developed by bespi123
 
 %% Data Containers
 station.YYYYMMDD=[];          %Year, month, day for the given position epoch
@@ -28,6 +66,9 @@ station.Rne=[];           %Correlation of dN and dE
 station.Rnu=[];           %Correlation of dN and dU
 station.Reu=[];           %Correlation of dEand dU
 
+%% Open file
+fileID = fopen(fileName);
+%% Read whole document
 while ~feof(fileID)
    tline = fgetl(fileID);
    if (strcmp(tline(1:11),'4-character'))
@@ -75,6 +116,6 @@ while ~feof(fileID)
         station.Reu=[station.Reu;temp(24)];           %Correlation of dEand dU
    end
 end
-
+%% Close file
 fclose(fileID);
 end
