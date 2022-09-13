@@ -5,10 +5,10 @@
 % baselines between to stations in order to calculate volcanic deformation.
 %%% Dependencies:
 % This program uses the fuctions:
-% *ReadGAmitFiles -- >  ReadGamitFiles.m
+% *ReadGAmitFiles    -->  ReadGamitFiles.m
 % *CalculateBaseline --> Local Function
-% *plotGamitNEU --> Local Function
-% *comparison --> Local Function
+% *plotGamitNEU      --> Local Function
+% *comparison        --> Local Function
 %%%% Developed by Bespi123 
 
 
@@ -39,6 +39,10 @@ plotGamitNEU(mtpi,'01-01-2021','05-31-2022',6);
 %% COMPARE ingemmet and IAAPP processing, and IAAPP with nevada Processing
 comparison(mtpi_ingemmet,mtpi,areq_nevada,areq,'01-02-2021','01-01-2022',6);
 
+%% Show summary stadistics
+%summaryEstadistics(areq);
+%summaryEstadistics(areg);
+summaryEstadistics(mtpi);
 
 %% User defined Fucntions
 
@@ -388,4 +392,31 @@ figure()
         subtitle(subtit);
         xlabel('Date')
     linkaxes([dE,dN,dU],'x');
+end
+
+function summaryEstadistics(site)
+    fprintf('-------------------------------------------\n');
+    fprintf('         %s North component\n',site.name);
+    fprintf('-------------------------------------------\n');
+    fprintf('Mean standar Deviation | %f mm\n',mean(site.Sn)*1E3);
+        [MaxS,i]=max(site.Sn);
+    fprintf('Max standar Deviation  | %f mm | Day: %d\n',MaxS*1E3,site.YYYYMMDD(i));
+        [MinS,i]=min(site.Sn);
+    fprintf('Min standar Deviation  | %f mm | Day: %d\n',MinS*1E3,site.YYYYMMDD(i));
+    fprintf('-------------------------------------------\n');
+    fprintf('         %s East component\n',site.name);
+    fprintf('-------------------------------------------\n');
+    fprintf('Mean standar Deviation | %f mm\n',mean(site.Se)*1E3);
+        [MaxS,i]=max(site.Se);
+    fprintf('Max standar Deviation  | %f mm | Day: %d\n',MaxS*1E3,site.YYYYMMDD(i));
+        [MinS,i]=min(site.Se);
+    fprintf('Min standar Deviation  | %f mm | Day: %d\n',MinS*1E3,site.YYYYMMDD(i));
+    fprintf('-------------------------------------------\n');
+    fprintf('         %s Up component\n',site.name);
+    fprintf('-------------------------------------------\n');
+    fprintf('Mean standar Deviation | %f mm\n',mean(site.Su)*1E3);
+        [MaxS,i]=max(site.Su);
+    fprintf('Max standar Deviation  | %f mm | Day: %d\n',MaxS*1E3,site.YYYYMMDD(i));
+        [MinS,i]=mi(site.Su);
+    fprintf('Min standar Deviation  | %f mm | Day: %d\n',MinS*1E3,site.YYYYMMDD(i));
 end
