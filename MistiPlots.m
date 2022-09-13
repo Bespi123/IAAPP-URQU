@@ -420,6 +420,6 @@ function summaryEstadistics(site)
     fprintf('Mean standar Deviation | %f mm\n',mean(site.Su)*1E3);
         [MaxS,i]=max(site.Su);
     fprintf('Max standar Deviation  | %f mm | Day: %d\n',MaxS*1E3,site.YYYYMMDD(i));
-        [MinS,i]=mi(site.Su);
+        [MinS,i]=min(site.Su);
     fprintf('Min standar Deviation  | %f mm | Day: %d\n',MinS*1E3,site.YYYYMMDD(i));
 end
