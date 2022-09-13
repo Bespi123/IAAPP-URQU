@@ -20,8 +20,8 @@ clear, clc, close all
         tara = ReadGamitFiles('TARA.iaa.orbit_igs14.pos');
         tarb = ReadGamitFiles('TARB.iaa.orbit_igs14.pos');
     % Read Laser files
-        smFiles = dir('Data/Laser/*.sm');
-        cpFiles = dir('Data/Laser/*.cp');
+        smFiles = dir('**/Data/Laser/*.sm');
+        cpFiles = dir('**/Data/Laser/*.cp');
         for i=1:length(smFiles)
             minico(i)=readTTsmfiles(smFiles(i).name);
             cpData(i)=readCpFiles(cpFiles(i).name);

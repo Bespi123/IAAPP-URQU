@@ -17,7 +17,7 @@ tarb = ReadGamitFiles('TARB.iaa.orbit_igs14.pos');
 
 %% Read Laser files
 %Read .sm files
-smFiles = dir('Data/Laser/*.sm');
+smFiles = dir('**/mit araData/Laser/*.sm');
 for i=1:length(smFiles)
     minico(i)=readTTsmfiles(smFiles(i).name);
 end
