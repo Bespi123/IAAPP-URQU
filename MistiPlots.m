@@ -395,6 +395,9 @@ figure()
 end
 
 function summaryEstadistics(site)
+% This fuction summaries the site's standard deviation calculated by gamit/globk.
+% INPUTS:
+% site--> station object readed by ReadGAmitFiles.m
     fprintf('-------------------------------------------\n');
     fprintf('         %s North component\n',site.name);
     fprintf('-------------------------------------------\n');
